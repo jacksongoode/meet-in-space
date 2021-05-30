@@ -1,0 +1,127 @@
+%align-right {
+    @include flex();
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.horizontal-filmstrip .filmstrip {
+    bottom: 0;
+    right: 0;
+    padding: 10px 5px;
+    @extend %align-right;
+    transition: bottom .3s;
+    z-index: $filmstripVideosZ;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+
+    /*
+     * Firefox sets flex items to min-height: auto and min-width: auto,
+     * preventing flex children from shrinking like they do on other browsers.
+     * Setting min-height and min-width 0 is a workaround for the issue so
+     * Firefox behaves like other browsers.
+     * https://bugzilla.mozilla.org/show_bug.cgi?id=1043520
+     */
+     @mixin minHWAutoFix() {
+        min-height: 0;
+        min-width: 0;
+    }
+
+    &.reduce-height {
+        bottom: calc(#{$newToolbarSizeWithPadding} + #{$scrollHeight});
+    }
+
+    &__videos {
+        @extend %align-right;
+        position:relative;
+        padding: 0;
+        /* The filmstrip should not be covered by the left toolbar. */
+        bottom: 0;
+        width:auto;
+        overflow: visible !important;
+
+        &#remoteVideos {
+            border: $thumbnailsBorder solid transparent;
+            transition: bottom 2s;
+            flex-grow: 1;
+            @include minHWAutoFix()
+        }
+
+        /**
+         * The local video identifier.
+         */
+        &#filmstripLocalVideo {
+            align-self: flex-end;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        &.hidden {
+            bottom: calc(-196px - #{$newToolbarSizeWithPadding});
+        }
+
+        .remote-videos-container {
+            display: flex;
+        }
+    }
+
+    .remote-videos-container {
+        transition: opacity 1s;
+    }
+
+    &.hide-videos {
+        .remote-videos-container {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    #filmstripRemoteVideos {
+        @include minHWAutoFix();
+
+        display: flex;
+        flex: 1;
+        width: auto;
+        justify-content: flex-end;
+        flex-direction: row;
+
+        #filmstripRemoteVideosContainer {
+            flex-direction: row-reverse;
+            /**
+             * Add padding as a hack for Firefox not to show scrollbars when
+             * unnecessary.
+             */
+            padding: 1px 0;
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+    }
+
+    .videocontainer {
+        margin-bottom: 10px;
+    }
+}
+
+
+/**
+ * Workarounds for Edge and Firefox not handling scrolling properly with
+ * flex-direction: row-reverse.
+ */
+ @mixin undoRowReverseVideos() {
+    .horizontal-filmstrip {
+        #remoteVideos #filmstripRemoteVideos #filmstripRemoteVideosContainer {
+            flex-direction: row;
+        }
+    }
+}
+
+/** Firefox detection hack **/
+@-moz-document url-prefix() {
+    @include undoRowReverseVideos();
+}
+
+/** Edge detection hack **/
+@supports (-ms-ime-align:auto) {
+    @include undoRowReverseVideos();
+}
