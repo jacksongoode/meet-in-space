@@ -53,30 +53,17 @@ This guide assumes the cloned folder will appear in the user's `home` directory.
 
 ## 4. Configure nginx to use your local folder 📂
 
-Edit your nginx conf file:
-`sudo nano /etc/nginx/sites-available/meet.domain.com.conf`
+Review your entire conf file and replace _all_ occurrences of `/usr/share/jitsi-meet` with `/home/$USER/jitsi-meet`, where $USER is the name of your user folder.
 
-It should look something like this (here, the username is ubuntu):
+This line can batch replace all strings within the conf file:
 
-```
-server
-{
-    listen meet.domain.com:443 ssl http2;
-    server_name meet.domain.com;
-    ...
-    ssl_certificate /etc/ssl/meet.domain.com.crt;
-    ssl_certificate_key /etc/ssl/meet.domain.com.key;
+`sudo sed -i.bak "s|/user/share/jitsi-meet|/home/$USER/meet-in-space|g" /etc/nginx/sites-available/meet.jacksongoo.de.conf`
 
-    # Comment the next line out, so you can revert later, if needed
-    #root /usr/share/jitsi-meet;
-    
-    # Add this new line below
-    root /home/ubuntu/jitsi-meet;
-...
-}
-```
+You can confirm the changes here:
 
-❗ Make sure you review your entire conf file and replace any other relevant occurrences of `/usr/share/jitsi-meet` with `/home/ubuntu/jitsi-meet`.
+`nano /etc/nginx/sites-available/meet.domain.com.conf`
+
+☝️ A backup file at `/etc/nginx/sites-available/meet.domain.com.conf.bak` preserves the original file just in case.
 
 ## 5. Restart nginx and verify 🎊
 
