@@ -1,5 +1,5 @@
 # Meet in Space
-Spatial audio for Jitsi Meet. 
+Meet in Space is (HRTF-based binarual) spatial audio for [Jitsi Meet](https://github.com/jitsi/jitsi-meet) using [Web Audio](https://webaudio.github.io/web-audio-api/).
 
 A master's thesis completing during the Music, Communication and Technology program at the University of Oslo (UiO) and University of Science and Technology (NTNU).
 
