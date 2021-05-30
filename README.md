@@ -55,15 +55,15 @@ This guide assumes the cloned folder will appear in the user's `home` directory.
 
 Review your entire conf file and replace _all_ occurrences of `/usr/share/jitsi-meet` with `/home/$USER/jitsi-meet`, where $USER is the name of your user folder.
 
-This line can batch replace all strings within the conf file:
+This line can batch replace all strings within the conf file, where `meet.domain.com` is the site you are hosting:
 
-`sudo sed -i.bak "s|/user/share/jitsi-meet|/home/$USER/meet-in-space|g" /etc/nginx/sites-available/meet.jacksongoo.de.conf`
+`sudo sed -i.bak "s|/user/share/jitsi-meet|/home/$USER/meet-in-space|g" /etc/nginx/sites-available/meet.domain.com.conf`
 
 You can confirm the changes here:
 
 `nano /etc/nginx/sites-available/meet.domain.com.conf`
 
-☝️ A backup file at `/etc/nginx/sites-available/meet.domain.com.conf.bak` preserves the original file just in case.
+☝️ A backup file at `/etc/nginx/sites-available/meet.domain.com.conf.bak` preserves the original file.
 
 ## 5. Restart nginx and verify 🎊
 
