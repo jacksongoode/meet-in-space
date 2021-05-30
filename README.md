@@ -1,7 +1,9 @@
-# meet-in-space
-Spatial audio for Jitsi Meet. My master's thesis for the Music, Communication and Technology program at the University of Oslo.
+# Meet in Space
+Spatial audio for Jitsi Meet. 
 
-A demo video of the system can be found [here](https://vimeo.com/548286337). Up to date with Jitsi Meet build [2.0.5870](https://github.com/jitsi/jitsi-meet/releases/tag/stable%2Fjitsi-meet_5870).
+A master's thesis completing during the Music, Communication and Technology program at the University of Oslo (UiO) and University of Science and Technology (NTNU).
+
+A demo video of the system can be found [here](https://vimeo.com/548286337). The system is built upon Jitsi Meet build [2.0.5870](https://github.com/jitsi/jitsi-meet/releases/tag/stable%2Fjitsi-meet_5870).
 
 ![Preview of video](preview.gif)
 
@@ -9,13 +11,13 @@ Intructions for an installation of the system are similar to deploying Jitsi Mee
 
 # Installation
 
-## 1. Install Jitsi Meet
+## 1. Install Jitsi Meet 👋
 
 Follow the steps for the official installation [here](https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-quickstart).
 
-Confirm you can join meetings between 3 people (or browser tabs) using your server. If this doesn’t work properly, troubleshoot before continuing.
+❗ Confirm you can join meetings between 3 people (or browser tabs) using your server. If this doesn’t work properly, troubleshoot before continuing.
 
-## 2. Install npm and Node.js
+## 2. Install npm and Node.js 🧪
 
 Download and install the latest LTS versions of npm and Node.js:
 
@@ -36,9 +38,9 @@ v14.17.0
 6.14.13
 ```
 
-## 3. Clone this repo via git, update & install
+## 3. Clone this repo via git, update, and install 🤖
 
-⚠️ Do **not** run build commands as the root user. Run all commands as a normal user.
+⚠️ Do **not** run build commands as the root user but as a normal user (no sudo).
 
 ```
 cd ~
@@ -49,7 +51,7 @@ npm update && npm install
 
 This guide assumes the cloned folder will appear in the user's `home` directory.
 
-## 4. Configure nginx to use your local folder
+## 4. Configure nginx to use your local folder 📂
 
 Edit your nginx conf file:
 `sudo nano /etc/nginx/sites-available/meet.domain.com.conf`
@@ -74,12 +76,12 @@ server
 }
 ```
 
-❗ Make sure you review your entire conf file & replace any other relevant occurrences of `/usr/share/jitsi-meet` with `/home/ubuntu/jitsi-meet`
+❗ Make sure you review your entire conf file and replace any other relevant occurrences of `/usr/share/jitsi-meet` with `/home/ubuntu/jitsi-meet`.
 
-## 5. Restart nginx and verify
+## 5. Restart nginx and verify 🎊
 
-Restart nginx: 
+Restart nginx:
 `sudo service nginx restart`
 
-Open a new meeting with a few tabs to verify the page loads.
+Open a new meeting across a few tabs to verify the page loads and connects.
 
