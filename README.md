@@ -7,7 +7,7 @@ A demo video of the system can be found [here](https://vimeo.com/548286337). The
 
 ![Preview of video](preview.gif)
 
-Intructions for an installation of the system are similar to deploying Jitsi Meet as a developer. Instructions were simplifyed from the great guide by corby found [here](https://community.jitsi.org/t/how-to-how-to-build-jitsi-meet-from-source-a-developers-guide/75422).
+Instructions for an installation of the system are similar to deploying Jitsi Meet as a developer. Instructions were simplified from the great guide by corby found [here](https://community.jitsi.org/t/how-to-how-to-build-jitsi-meet-from-source-a-developers-guide/75422).
 
 # Installation
 
