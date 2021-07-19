@@ -1,7 +1,7 @@
 # Meet in Space
-Meet in Space is (HRTF-based, binarual) spatial audio for [Jitsi Meet](https://github.com/jitsi/jitsi-meet) using [Web Audio](https://webaudio.github.io/web-audio-api/). Server space provided by the [Norwegian Research and Education Cloud](https://nrec.no/).
+Meet in Space is (HRTF-based, binarual) spatial audio for [Jitsi Meet](https://github.com/jitsi/jitsi-meet) using [Web Audio](https://webaudio.github.io/web-audio-api/). Server space provided by the [Norwegian Research and Education Cloud](https://nrec.no/). This work was completed in partial fulfillment for the Music, Communication and Technology program at the University of Oslo (UiO) and University of Science and Technology (NTNU).
 
-A master's thesis completing during the Music, Communication and Technology program at the University of Oslo (UiO) and University of Science and Technology (NTNU).
+[Check out the thesis](https://github.com/jacksongoode/meet-in-space/blob/main/Toward%20a%20Telepresence%20of%20Sound%20-%20Thesis.pdf) for more insights into spatial audio, user interaction, intelligibility and more!
 
 A demo video of the system can be found [here](https://vimeo.com/548286337). The system is built upon Jitsi Meet build [2.0.5870](https://github.com/jitsi/jitsi-meet/releases/tag/stable%2Fjitsi-meet_5870).
 
